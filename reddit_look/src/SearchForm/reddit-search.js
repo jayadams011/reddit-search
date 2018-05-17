@@ -1,17 +1,20 @@
-
+import './search-form.css'
 import React, { Component } from 'react'
 import superagent from 'superagent'
 
 class RedditSearch extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      searchFormBoard: '',
-      searchFormLimit: 0,
-    }
-
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleChange = this.handleChange.bind(this)
+    constructor (props) {
+      super(props)
+      this.state = {
+        searchFormBoard: '',
+        searchFormLimit: 0,
+        borderClass: 'success'
+      }
+  
+      this.handleSubmit = this.handleSubmit.bind(this)
+      this.handleChange = this.handleChange.bind(this)
+      this.setState = this.setState.bind(this)
+    
   }
 
   handleSubmit(e) {
@@ -29,22 +32,22 @@ class RedditSearch extends Component {
     this.setState({[e.target.name]: e.target.value})
   }
 
-  render() {
+  render () {
     return (
-      <div className="reddit-search">
-        <form onSubmit={this.handleSubmit}>
+      <div className='reddit-search'>
+        <form onSubmit={this.handleSubmit} className={this.state.borderClass}>
           <input
-            type="text"
-            name="searchFormBoard"
+            type='text'
+            name='searchFormBoard'
             value={this.state.searchFormBoard}
-            onChange={this.handleChange}/>
+            onChange={this.handleChange} />
           <input
-            type="number"
-            name="searchFormLimit"
+            type='number'
+            name='searchFormLimit'
             value={this.state.searchFormLimit}
-            onChange={this.handleChange}/>
+            onChange={this.handleChange} />
 
-          <button type="submit">Search</button>
+          <button type='submit'>Search</button>
         </form>
       </div>
     )
