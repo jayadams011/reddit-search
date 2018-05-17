@@ -7,7 +7,7 @@ class RedditSearch extends Component {
       super(props)
       this.state = {
         searchFormBoard: '',
-        searchFormLimit: 0,
+        searchFormLimit: 10,
         borderClass: 'success'
       }
   
